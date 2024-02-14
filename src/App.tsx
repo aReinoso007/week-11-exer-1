@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+
+import { Container, Stack } from 'react-bootstrap';
 import './App.css';
+import TaskList from './components/List';
+import { Task } from './models/task.model';
 
 function App() {
+  
+  const taslList: Task[] = [
+    { id: '1', title: 'Task 1', description: 'This is task 1', status: 'OPEN' },
+    { id: '2', title: 'Task 2', status: 'IN_PROGRESS' },
+    { id: '3', title: 'Task 3', description: 'This is task 3', status: 'DONE' },
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <h1>Task List</h1>
+      <Stack direction='horizontal'>
+        {taslList.map((task) => (
+          <TaskList {...task} />
+        ))}
+      </Stack>
+    </Container>
   );
 }
 
