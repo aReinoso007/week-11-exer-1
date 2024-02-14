@@ -1,12 +1,12 @@
 
 import { Container, Stack } from 'react-bootstrap';
 import './App.css';
-import TaskList from './components/List';
+import TaskList from './components/TaskList';
 import { Task } from './models/task.model';
 
 function App() {
   
-  const taslList: Task[] = [
+  const tasks: Task[] = [
     { id: '1', title: 'Task 1', description: 'This is task 1', status: 'OPEN' },
     { id: '2', title: 'Task 2', status: 'IN_PROGRESS' },
     { id: '3', title: 'Task 3', description: 'This is task 3', status: 'DONE' },
@@ -16,7 +16,7 @@ function App() {
     <Container>
       <h1>Task List</h1>
       <Stack direction='horizontal'>
-        {taslList.map((task) => (
+        {tasks.map((task) => (
           <TaskList {...task} />
         ))}
       </Stack>
